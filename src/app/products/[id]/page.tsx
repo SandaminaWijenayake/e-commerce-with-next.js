@@ -2,7 +2,7 @@ import { use } from "react";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import products from "@/lib/items.json";
-import type { Product } from "@/features/products/productSlice";
+// import type { Product } from "@/features/products/productSlice";
 import BackButton from "./BackButton";
 import ShoppingControls from "./ShoppingControls";
 

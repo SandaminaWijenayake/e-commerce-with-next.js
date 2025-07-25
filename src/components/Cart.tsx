@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import type { RootState } from "../lib/store";
 import { removeFromCart, updateQuantity } from "../features/cart/cartSlice";
-
+import Image from "next/image";
 export default function Cart() {
   const dispatch = useDispatch();
   const items = useSelector((state: RootState) => state.cart.items);
@@ -69,7 +69,7 @@ export default function Cart() {
             </div>
 
             {item.image && (
-              <img
+              <Image
                 src={item.image}
                 alt={item.name}
                 className="
