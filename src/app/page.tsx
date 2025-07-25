@@ -4,7 +4,7 @@ import items from "@/lib/items.json";
 import { setProducts } from "@/features/products/productSlice";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import type { Product } from "@/features/products/productSlice";
-import Image from "next/image";
+
 // import ProductCard from "@/components/ProductCard";
 import ProductList from "@/components/ProductList";
 
