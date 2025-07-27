@@ -1,18 +1,6 @@
-// store/productSlice.ts
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
-export type Product = {
-  id: number;
-  name: string;
-  brand: string;
-  size: string;
-  occasion: string;
-  color: string;
-  saleDiscount: number;
-  price: number;
-  rating: number;
-  image: string;
-};
+import { ObjectId } from "mongodb";
+import { Product } from "@/lib/mongodb";
 
 type ProductState = {
   items: Product[];

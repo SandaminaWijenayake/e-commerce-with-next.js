@@ -1,11 +1,11 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
 import type { RootState } from "../lib/store";
 import { removeFromCart, updateQuantity } from "../features/cart/cartSlice";
 import Image from "next/image";
+import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 export default function Cart() {
-  const dispatch = useDispatch();
-  const items = useSelector((state: RootState) => state.cart.items);
+  const dispatch = useAppDispatch();
+  const items = useAppSelector((state: RootState) => state.cart.items);
   const cartItems = Object.values(items);
 
   const handleIncrease = (id: string, qty: number) => {
@@ -46,7 +46,7 @@ export default function Cart() {
                   onClick={() => handleDecrease(item.id, item.quantity)}
                   className="px-2 py-1 bg-gray-200 rounded hover:bg-gray-300"
                 >
-                  –
+                  -
                 </button>
                 <span className="mx-2 w-6 text-center">{item.quantity}</span>
                 <button
@@ -58,7 +58,7 @@ export default function Cart() {
               </div>
 
               <div className="font-semibold">
-                ₹{(item.price * item.quantity).toFixed(2)}
+                ${(item.price * item.quantity).toFixed(2)}
               </div>
               <div
                 onClick={() => handleRemove(item.id)}
@@ -78,6 +78,8 @@ export default function Cart() {
                   object-cover rounded 
                   mb-4 lg:mb-0 md:w-8/12  m-auto lg:w-1/5
                 "
+                width={150}
+                height={150}
               />
             )}
           </div>

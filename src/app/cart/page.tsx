@@ -1,12 +1,12 @@
 "use client";
 
 import Cart from "@/components/Cart";
-import { useSelector } from "react-redux";
 import type { RootState } from "@/lib/store";
 import { selectCartTotal } from "@/features/cart/selectors";
+import { useAppSelector } from "@/lib/hooks";
 
 export default function CartPage() {
-  const total = useSelector((state: RootState) => selectCartTotal(state));
+  const total = useAppSelector((state: RootState) => selectCartTotal(state));
 
   return (
     <main className="pt-32 w-[90%] mx-auto">
@@ -15,7 +15,7 @@ export default function CartPage() {
 
         <div className="flex justify-between items-center mb-6">
           <span className="text-xl font-semibold">Total : </span>
-          <span className="text-xl font-bold">Rs. {total.toFixed(2)}</span>
+          <span className="text-xl font-bold">${total.toFixed(2)}</span>
         </div>
       </div>
 

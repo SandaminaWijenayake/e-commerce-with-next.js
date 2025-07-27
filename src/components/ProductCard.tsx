@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
-import type { Product } from "@/features/products/productSlice";
 import { motion } from "framer-motion";
+import type { Product } from "@/lib/mongodb";
 
 type ProductCardProps = {
   product: Product;
@@ -21,6 +21,8 @@ function ProductCard({ product }: ProductCardProps) {
           alt={product.name}
           fill
           className="rounded-md object-cover"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          priority
         />
       </div>
       <h2 className="text-lg font-semibold">{product.name}</h2>

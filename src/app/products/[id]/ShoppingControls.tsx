@@ -1,12 +1,11 @@
 "use client";
-
 import { useState } from "react";
-import { useDispatch } from "react-redux";
 import { addToCart } from "@/features/cart/cartSlice";
-import type { Product } from "@/features/products/productSlice";
+import type { Product } from "@/lib/mongodb";
+import { useAppDispatch } from "@/lib/hooks";
 
 export default function ShoppingControls({ product }: { product: Product }) {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const [quantity, setQuantity] = useState(1);
 
   const decrement = () => setQuantity((q) => Math.max(1, q - 1));
@@ -30,7 +29,7 @@ export default function ShoppingControls({ product }: { product: Product }) {
         onClick={decrement}
         className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300"
       >
-        –
+        -
       </button>
       <span className="w-8 text-center">{quantity}</span>
       <button
