@@ -9,11 +9,11 @@ import ProductList from "@/components/ProductList";
 export default function Home() {
   const dispatch = useAppDispatch();
   const products: Product[] = useAppSelector((state) => state.products.items);
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
   const [mounted, setMounted] = useState(false);
 
   async function fetchProducts() {
-    setLoading(true);
+    // setLoading(true);
     try {
       const res = await fetch("/api/products");
       const data = (await res.json()) as Product[];
@@ -21,18 +21,14 @@ export default function Home() {
     } catch (error) {
       console.error("Failed to fetch products:", error);
     } finally {
-      setLoading(false);
+      // setLoading(false);
     }
   }
 
   useEffect(() => {
     setMounted(true);
     fetchProducts();
-  }, []);
-
-  useEffect(() => {
-    fetchProducts();
-  }, []);
+  }, [fetchProducts]);
 
   return (
     <>

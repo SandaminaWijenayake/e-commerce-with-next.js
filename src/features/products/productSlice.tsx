@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ObjectId } from "mongodb";
 import { Product } from "@/lib/mongodb";
 
 type ProductState = {
