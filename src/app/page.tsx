@@ -28,7 +28,7 @@ export default function Home() {
   useEffect(() => {
     setMounted(true);
     fetchProducts();
-  }, [fetchProducts]);
+  }, []);
 
   return (
     <>

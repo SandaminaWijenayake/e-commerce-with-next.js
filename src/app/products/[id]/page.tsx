@@ -18,7 +18,7 @@ export default async function ProductPage({
     notFound();
   }
   const safeProduct = {
-    id: product._id ? Number(product._id) : 0,
+    id: product.id,
     name: product.name,
     brand: product.brand,
     size: product.size,

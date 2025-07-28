@@ -41,7 +41,7 @@ export default function Cart() {
             <div className="flex-1 order-2 lg:order-1 text-center lg:text-left mb-4 lg:mb-0 m-auto">
               <div className="font-medium text-lg mb-2">{item.name}</div>
 
-              <div className="flex items-center mb-2">
+              <div className="flex justify-center lg:justify-start items-center mb-2">
                 <button
                   onClick={() => handleDecrease(item.id, item.quantity)}
                   className="px-2 py-1 bg-gray-200 rounded hover:bg-gray-300"
