@@ -25,7 +25,10 @@ function ProductCard({ product }: ProductCardProps) {
           priority
         />
       </div>
-      <h2 className="text-lg font-semibold">{product.name}</h2>
+
+      <h2 className="text-lg font-semibold whitespace-nowrap overflow-hidden text-ellipsis">
+        {product.name}
+      </h2>
       <p className="text-sm">{product.brand}</p>
       <p className="text-sm">Size: {product.size}</p>
       <p className="text-sm">Occasion: {product.occasion}</p>

@@ -20,6 +20,12 @@ export interface Product {
   description?: string;
 }
 
+export interface HeroImage {
+  _id?: ObjectId;
+  name: string;
+  image: string;
+}
+
 export async function getProductById(id: string): Promise<Product | null> {
   const client = await clientPromise;
   const db = client.db(process.env.MONGODB_DB_NAME);
@@ -30,4 +36,10 @@ export async function getProducts(): Promise<Product[]> {
   const client = await clientPromise;
   const db = client.db(process.env.MONGODB_DB_NAME);
   return db.collection<Product>("products").find({}).toArray();
+}
+
+export async function getHeroImages(): Promise<HeroImage[]> {
+  const client = await clientPromise;
+  const db = client.db(process.env.MONGODB_DB_NAME);
+  return db.collection<HeroImage>("heroimages").find({}).toArray();
 }

@@ -1,39 +1,46 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { setProducts } from "@/features/products/productSlice";
+import { getProductsAsync } from "@/features/products/productSlice";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
-import type { Product } from "@/lib/mongodb";
+import type { HeroImage, Product } from "@/lib/mongodb";
 import ProductList from "@/components/ProductList";
+import HeroImages from "@/components/HeroImages";
+import { getHeroImagesAsync } from "@/features/products/productSlice";
+import { LoadingOverlay } from "@/components/LoadingOverlay";
 
 export default function Home() {
   const dispatch = useAppDispatch();
   const products: Product[] = useAppSelector((state) => state.products.items);
-  // const [loading, setLoading] = useState(false);
+  const heroImages: HeroImage[] = useAppSelector(
+    (state) => state.heroImages.items
+  );
+  const loading: boolean = useAppSelector((state) => state.products.loading);
   const [mounted, setMounted] = useState(false);
 
-  async function fetchProducts() {
-    // setLoading(true);
-    try {
-      const res = await fetch("/api/products");
-      const data = (await res.json()) as Product[];
-      dispatch(setProducts(data));
-    } catch (error) {
-      console.error("Failed to fetch products:", error);
-    } finally {
-      // setLoading(false);
-    }
-  }
-
   useEffect(() => {
+    if (products.length === 0) {
+      dispatch(getProductsAsync());
+      dispatch(getHeroImagesAsync());
+      console.log("Products fetched successfully");
+    }
     setMounted(true);
-    fetchProducts();
+    console.log(mounted, "mounted products");
+    console.log(products.length, "products loaded");
   }, []);
 
   return (
     <>
-      <div className="h-32"></div>
-      {mounted && <ProductList products={products} />}
+      {mounted && loading ? (
+        <LoadingOverlay />
+      ) : (
+        <HeroImages heroImages={heroImages} />
+      )}
+      {mounted && loading ? (
+        <LoadingOverlay />
+      ) : (
+        <ProductList products={products} />
+      )}
     </>
   );
 }
