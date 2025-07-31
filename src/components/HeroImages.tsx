@@ -12,12 +12,15 @@ export default function HeroImages({ heroImages }: HeroImagesProps) {
   return (
     <section className="grid grid-cols-1 grid-rows-7 md:grid-rows-4 md:grid-cols-2 lg:grid-rows-2 mt-32 lg:grid-cols-4 h-[900px] sm:h-[700px] md:h-[500px] overflow-hidden w-10/12 m-auto gap-4">
       {heroImages.slice(0, 1).map((data) => (
-        <div className="md:col-span-2 row-span-2   flex items-center relative w-full h-full justify-center">
+        <div
+          key={data._id?.toString()}
+          className="md:col-span-2 row-span-2   flex items-center relative w-full h-full justify-center"
+        >
           <Image
-            key={data._id?.toString()}
             src={data.image}
             alt={data.name || "Hero Image"}
             fill
+            priority
             className="rounded-md max-h-full max-w-full absolute object-cover"
           />
           <motion.div
@@ -30,12 +33,15 @@ export default function HeroImages({ heroImages }: HeroImagesProps) {
         </div>
       ))}
       {heroImages.slice(1, 2).map((data) => (
-        <div className="flex items-center row-span-3 md:row-span-2 relative w-full h-full justify-center ">
+        <div
+          key={data._id?.toString()}
+          className="flex items-center row-span-3 md:row-span-2 relative w-full h-full justify-center "
+        >
           <Image
-            key={data._id?.toString()}
             src={data.image}
             alt={data.name || "Hero Image"}
             fill
+            priority
             className="rounded-md max-h-full max-w-full object-cover"
           />
           <motion.div
@@ -54,6 +60,7 @@ export default function HeroImages({ heroImages }: HeroImagesProps) {
               src={data.image}
               alt={data.name || "Hero Image"}
               fill
+              priority
               className="rounded-md max-h-full max-w-full object-cover"
             />
             <motion.div
@@ -73,6 +80,7 @@ export default function HeroImages({ heroImages }: HeroImagesProps) {
               src={data.image}
               alt={data.name || "Hero Image"}
               fill
+              priority
               className="rounded-md object-cover"
             />
             <motion.div

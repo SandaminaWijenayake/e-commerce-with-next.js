@@ -40,7 +40,7 @@ export default function ShoppingControls({ product }: { product: Product }) {
       </button>
       <button
         onClick={handleAddToCart}
-        className="ml-4 px-5 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+        className="ml-4 px-5 py-2 cursor-pointer bg-blue-600 text-white rounded hover:bg-blue-700"
       >
         Add to Cart
       </button>

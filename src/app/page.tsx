@@ -27,7 +27,7 @@ export default function Home() {
     setMounted(true);
     console.log(mounted, "mounted products");
     console.log(products.length, "products loaded");
-  }, []);
+  }, [products.length]);
 
   return (
     <>
