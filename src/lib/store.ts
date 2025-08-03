@@ -1,6 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
 import productReducer, {
+  allProductsReducer,
   heroImagesReducer,
+  otherImagesReducer,
 } from "@/features/products/productSlice";
 import cartReducer from "@/features/cart/cartSlice";
 export const makeStore = () => {
@@ -9,6 +11,8 @@ export const makeStore = () => {
       products: productReducer,
       cart: cartReducer,
       heroImages: heroImagesReducer,
+      allProducts: allProductsReducer,
+      otherImages: otherImagesReducer,
     },
   });
 };

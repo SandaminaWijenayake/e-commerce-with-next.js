@@ -44,14 +44,14 @@ export default function Cart() {
               <div className="flex justify-center lg:justify-start items-center mb-2">
                 <button
                   onClick={() => handleDecrease(item.id, item.quantity)}
-                  className="px-2 py-1 bg-gray-200 rounded hover:bg-gray-300"
+                  className="px-2 cursor-pointer py-1 bg-gray-200 rounded hover:bg-gray-300"
                 >
                   -
                 </button>
                 <span className="mx-2 w-6 text-center">{item.quantity}</span>
                 <button
                   onClick={() => handleIncrease(item.id, item.quantity)}
-                  className="px-2 py-1 bg-gray-200 rounded hover:bg-gray-300"
+                  className="px-2 cursor-pointer py-1 bg-gray-200 rounded hover:bg-gray-300"
                 >
                   +
                 </button>
@@ -62,7 +62,7 @@ export default function Cart() {
               </div>
               <div
                 onClick={() => handleRemove(item.id)}
-                className="text-red-500 hover:underline"
+                className="text-red-500 cursor-pointer hover:underline"
               >
                 Remove
               </div>

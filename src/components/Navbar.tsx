@@ -56,16 +56,23 @@ export default function Navbar() {
               <h2 className="cursor-pointer font-semibold text-xl">FitFlux</h2>
             </Link>
             <div className="flex gap-6">
-              <Link href="/cart">
-                <div className="cursor-pointer hover:underline flex items-center gap-1">
-                  <ShoppingCartIcon className="h-6 w-6" />
-                  {totalCount > 0 && (
-                    <span className="bg-red-500 text-white text-xs font-semibold rounded-full h-5 w-5 flex items-center justify-center">
-                      {totalCount}
-                    </span>
-                  )}
+              <Link href="/categories">
+                <div className="uppercase cursor-pointer text-gray-700 font-semibold hover:text-black">
+                  categories
                 </div>
               </Link>
+              <div className="flex gap-6">
+                <Link href="/cart">
+                  <div className="cursor-pointer hover:scale-110 flex items-center gap-1">
+                    <ShoppingCartIcon className="h-6 w-6" />
+                    {totalCount > 0 && (
+                      <span className="bg-red-500 text-white text-xs font-semibold rounded-full h-5 w-5 flex items-center justify-center">
+                        {totalCount}
+                      </span>
+                    )}
+                  </div>
+                </Link>
+              </div>
             </div>
           </nav>
         </motion.div>
