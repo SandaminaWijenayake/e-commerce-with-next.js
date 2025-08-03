@@ -1,41 +1,17 @@
-"use client";
-import React, { useEffect } from "react";
-import HomeButton from "./HomeButton";
-import FilterFunction from "@/components/FilterFunction";
-import { useAppDispatch, useAppSelector } from "@/lib/hooks";
-import { RootState } from "@/lib/store";
-import { getAllProductsAsync } from "@/features/products/productSlice";
-import { LoadingOverlay } from "@/components/LoadingOverlay";
-import { useSearchParams } from "next/navigation";
+// app/categories/page.tsx
+"use client"; // still a Client Component
 import { Suspense } from "react";
+import HomeButton from "./HomeButton";
+import SearchSection from "./SearchSection";
 
-const CategoryPage = () => {
-  const dispatch = useAppDispatch();
-  const loading: boolean = useAppSelector((state) => state.allProducts.loading);
-  const allProducts = useAppSelector(
-    (state: RootState) => state.allProducts.items
-  );
-  useEffect(() => {
-    if (allProducts.length === 0) {
-      dispatch(getAllProductsAsync());
-      console.log("Products fetched successfully");
-    }
-  }, [allProducts.length]);
-
-  const category = useSearchParams().get("category");
-
+export default function CategoryPage() {
   return (
-    <Suspense fallback={<div>Loading filters…</div>}>
-      <div className="pt-32 w-10/12 mx-auto">
-        <HomeButton />
-        {loading ? (
-          <LoadingOverlay />
-        ) : (
-          <FilterFunction category={category} allProducts={allProducts} />
-        )}
-      </div>
-    </Suspense>
-  );
-};
+    <div className="pt-32 w-10/12 mx-auto">
+      <HomeButton />
 
-export default CategoryPage;
+      <Suspense fallback={<div>Loading filters…</div>}>
+        <SearchSection />
+      </Suspense>
+    </div>
+  );
+}
