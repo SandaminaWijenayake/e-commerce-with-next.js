@@ -1,5 +1,5 @@
 "use client";
-import React, { use, useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import HomeButton from "./HomeButton";
 import FilterFunction from "@/components/FilterFunction";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
@@ -8,7 +8,7 @@ import { getAllProductsAsync } from "@/features/products/productSlice";
 import { LoadingOverlay } from "@/components/LoadingOverlay";
 import { useSearchParams } from "next/navigation";
 
-const page = () => {
+const CategoryPage = () => {
   const dispatch = useAppDispatch();
   const loading: boolean = useAppSelector((state) => state.allProducts.loading);
   const allProducts = useAppSelector(
@@ -35,4 +35,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default CategoryPage;

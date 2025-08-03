@@ -28,6 +28,7 @@ export default function HeroImages({ heroImages }: HeroImagesProps) {
             src={data.image}
             alt={data.name || "Hero Image"}
             fill
+            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
             priority
             className="rounded-md max-h-full max-w-full absolute object-cover"
           />
@@ -51,6 +52,7 @@ export default function HeroImages({ heroImages }: HeroImagesProps) {
             alt={data.name || "Hero Image"}
             fill
             priority
+            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
             className="rounded-md max-h-full max-w-full object-cover"
           />
           <motion.div
@@ -73,6 +75,7 @@ export default function HeroImages({ heroImages }: HeroImagesProps) {
               alt={data.name || "Hero Image"}
               fill
               priority
+              sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
               className="rounded-md max-h-full max-w-full object-cover"
             />
             <motion.div
@@ -96,6 +99,7 @@ export default function HeroImages({ heroImages }: HeroImagesProps) {
               alt={data.name || "Hero Image"}
               fill
               priority
+              sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
               className="rounded-md object-cover"
             />
             <motion.div

@@ -1,6 +1,7 @@
 import React from "react";
 import { otherimages } from "@/lib/mongodb";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 type CreativeharmoniouslivingProps = {
   otherimages: otherimages[];
@@ -28,9 +29,11 @@ const Creativeharmoniousliving = ({
         </div>
         <div className="md:w-1/2 hidden md:flex items-center justify-center">
           {otherimages.slice(0, 1).map((items) => (
-            <img
+            <Image
               key={items._id?.toString()}
               src={items.image}
+              width={1000}
+              height={500}
               className="w-full h-full object-cover"
               alt="Creative Harmonious Living"
             />

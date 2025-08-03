@@ -1,6 +1,7 @@
 import React from "react";
 import { otherimages } from "@/lib/mongodb";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 type ComfortableEleganteProps = {
   otherimages: otherimages[];
@@ -13,9 +14,11 @@ const ComfortableElegante = ({ otherimages }: ComfortableEleganteProps) => {
       <div className="w-10/12 flex overflow-hidden h-[400px] m-auto">
         <div className="md:w-1/2 hidden md:flex items-center justify-center">
           {otherimages.slice(1, 2).map((items) => (
-            <img
+            <Image
               key={items._id?.toString()}
               src={items.image}
+              width={1000}
+              height={500}
               className="w-full h-full object-cover"
               alt="Creative Harmonious Living"
             />

@@ -1,6 +1,7 @@
 import React from "react";
 import { allProducts } from "@/lib/mongodb";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 type AllProductsProps = {
   allProducts: allProducts[];
@@ -25,7 +26,12 @@ const AllProducts = ({ allProducts }: AllProductsProps) => {
               key={items._id?.toString()}
               onClick={() => handleClick(items._id?.toString())}
             >
-              <img src={items.img} alt={items.description} />
+              <Image
+                src={items.img}
+                alt={items.description}
+                width={1000}
+                height={1000}
+              />
               <h2>{items.description}</h2>
               <p className="font-bold pt-1">${items.price}</p>
             </div>
