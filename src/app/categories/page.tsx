@@ -1,5 +1,4 @@
-// app/categories/page.tsx
-"use client"; // still a Client Component
+"use client";
 import { Suspense } from "react";
 import HomeButton from "./HomeButton";
 import SearchSection from "./SearchSection";
