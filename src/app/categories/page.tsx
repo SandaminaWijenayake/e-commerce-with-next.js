@@ -7,6 +7,7 @@ import { RootState } from "@/lib/store";
 import { getAllProductsAsync } from "@/features/products/productSlice";
 import { LoadingOverlay } from "@/components/LoadingOverlay";
 import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 
 const CategoryPage = () => {
   const dispatch = useAppDispatch();
@@ -24,14 +25,16 @@ const CategoryPage = () => {
   const category = useSearchParams().get("category");
 
   return (
-    <div className="pt-32 w-10/12 mx-auto">
-      <HomeButton />
-      {loading ? (
-        <LoadingOverlay />
-      ) : (
-        <FilterFunction category={category} allProducts={allProducts} />
-      )}
-    </div>
+    <Suspense fallback={<div>Loading filters…</div>}>
+      <div className="pt-32 w-10/12 mx-auto">
+        <HomeButton />
+        {loading ? (
+          <LoadingOverlay />
+        ) : (
+          <FilterFunction category={category} allProducts={allProducts} />
+        )}
+      </div>
+    </Suspense>
   );
 };
 
