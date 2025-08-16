@@ -2,11 +2,21 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import BackButton from "./BackButton";
 import ShoppingControls from "./ShoppingControls";
-import { getAllProductById } from "@/lib/mongodb";
+import { getAllProductById, getAllProducts } from "@/lib/mongodb";
 
 type Params = {
   id: string;
 };
+
+export async function generateStaticParams() {
+  const products = await getAllProducts();
+
+  return products.map(
+    (product: { _id: string | import("mongodb").ObjectId }) => ({
+      id: product._id.toString(),
+    })
+  );
+}
 
 export default async function ProductPage({
   params,
