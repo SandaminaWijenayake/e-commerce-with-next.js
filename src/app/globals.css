@@ -1,2 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 @import "tailwindcss";
+
+@layer utilities {
+  .text-brand-orange {
+    color: #f97415;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-block px-8 py-4 rounded-xl cursor-pointer font-semibold text-white bg-[#f97415] 
+         hover:bg-[#f9822d] transition-colors duration-300 ease-in-out;
+  }
+
+  .btn-gray {
+    @apply inline-block bg-gray-100 cursor-pointer text-black shadow text-lg px-8 py-4 rounded-2xl hover:bg-gray-50 transition-colors duration-300;
+  }
+
+  .btn-muted {
+    @apply inline-block px-8 py-4 cursor-pointer bg-white text-black text-lg rounded-2xl hover:shadow transition-colors duration-300;
+  }
+}

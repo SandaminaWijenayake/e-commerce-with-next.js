@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { allProducts } from "@/lib/mongodb";
-import Image from "next/image";
+// import Image from "next/image";
+import ProductCard from "./ProductCard";
+// import { Filter } from "lucide-react";
+import FilterTuggle from "./FilterTuggle";
+import FilterButton from "./FilterButton";
 
 const filterOptions = [
   { label: "All", value: "all" },
@@ -54,39 +58,51 @@ const FilterFunction = ({ allProducts, category }: AllProductsProps) => {
   useEffect(() => {
     setFilteredProducts(allProducts);
     productClickedFromHomePageHandler(category);
-  }, [allProducts, category]);
+  }, [allProducts, category, productClickedFromHomePageHandler]);
 
   return (
     <>
-      <div className="flex flex-wrap justify-center w-full cursor-pointer  mx-auto">
-        {" "}
-        {filterOptions.map((option) => (
-          <h1
-            onClick={() => handleFilterOption(option.value)}
-            key={option.value}
-            className="mx-2 text-center hover:text-gray-700"
-          >
-            {option.label}
-          </h1>
-        ))}
+      <div className="mb-8">
+        <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          All Products
+        </h1>
+        <p className="text-lg text-muted-foreground">
+          Discover our complete collection of quality products
+        </p>
       </div>
-      <div className="grid grid-cols-1 pt-14 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {filteredProducts.map((items) => (
-          <div
-            className="transition-transform cursor-pointer duration-200 hover:border-2 hover:border-gray-300 p-4 rounded-lg shadow-md"
-            key={items._id?.toString()}
-            onClick={() => handleClick(items._id?.toString())}
-          >
-            <Image
-              src={items.img}
-              alt={items.description}
-              width={1000}
-              height={1000}
-            />
-            <h2>{items.description}</h2>
-            <p className="font-bold pt-1">${items.price}</p>
+      <FilterButton
+        filterOptions={filterOptions}
+        handleFilterOption={handleFilterOption}
+      />
+
+      <div className="grid grid-cols-4">
+        <aside className="hidden lg:block col-span-1">
+          <div className="grid grid-cols-1 ">
+            <div className="hidden lg:block">
+              <div className="sticky top-6 space-y-6"></div>
+              <h3 className="text-lg font-semibold ">Categories</h3>
+              <FilterTuggle
+                filterOptions={filterOptions}
+                handleFilterOption={handleFilterOption}
+              />
+            </div>
           </div>
-        ))}
+        </aside>
+        <div className="col-span-4 lg:col-span-3">
+          <div className="grid grid-cols-1 pt-14 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {filteredProducts.map((item) => (
+              <ProductCard
+                key={item._id?.toString()}
+                id={item._id?.toString()}
+                img={item.img}
+                description={item.description}
+                category={item.category}
+                price={item.price}
+                onClick={handleClick}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </>
   );

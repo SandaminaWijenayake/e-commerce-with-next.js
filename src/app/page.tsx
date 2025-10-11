@@ -5,6 +5,7 @@ import { getProductsAsync } from "@/features/products/productSlice";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import type { HeroImage, otherimages, Product } from "@/lib/mongodb";
 import HeroImages from "@/components/HeroImages";
+import HeroNew from "@/components/HeroNew";
 import { getHeroImagesAsync } from "@/features/products/productSlice";
 import { LoadingOverlay } from "@/components/LoadingOverlay";
 import AllProducts from "@/components/AllProducts";
@@ -12,8 +13,8 @@ import { allProducts } from "@/lib/mongodb";
 import { getAllProductsAsync } from "@/features/products/productSlice";
 import Creativeharmoniousliving from "@/components/Creativeharmoniousliving";
 import { getOtherImagesAsync } from "@/features/products/productSlice";
-import TrendingNow from "@/components/TrendingNow";
-import ComfortableElegante from "@/components/ComfortableElegante";
+// import TrendingNow from "@/components/TrendingNow";
+// import ComfortableElegante from "@/components/ComfortableElegante";
 
 export default function Home() {
   const dispatch = useAppDispatch();
@@ -42,40 +43,33 @@ export default function Home() {
     setMounted(true);
     console.log(mounted, "mounted products");
     console.log(products.length, "products loaded");
-  }, [products.length]);
+  }, [products.length, dispatch, mounted]);
 
   return (
     <>
+      {mounted && loading ? <LoadingOverlay /> : <HeroNew />}
       {mounted && loading ? (
         <LoadingOverlay />
       ) : (
         <HeroImages heroImages={heroImages} />
+        // <ProductList products={products} />
       )}
-      {/* {mounted && loading ? (
-        <LoadingOverlay />
-      ) : (
-        <ProductList products={products} />
-      )} */}
       {mounted && loading ? (
         <LoadingOverlay />
       ) : (
         <AllProducts allProducts={allProducts} />
       )}
-      {mounted && loading ? (
-        <LoadingOverlay />
-      ) : (
-        <Creativeharmoniousliving otherimages={otherImages} />
-      )}
-      {mounted && loading ? (
+      {mounted && loading ? <LoadingOverlay /> : <Creativeharmoniousliving />}
+      {/* {mounted && loading ? (
         <LoadingOverlay />
       ) : (
         <TrendingNow allProducts={allProducts} />
-      )}
-      {mounted && loading ? (
+      )} */}
+      {/* {mounted && loading ? (
         <LoadingOverlay />
       ) : (
         <ComfortableElegante otherimages={otherImages} />
-      )}
+      )} */}
     </>
   );
 }
