@@ -5,6 +5,7 @@ import { getProductsAsync } from "@/features/products/productSlice";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import type { HeroImage, otherimages, Product } from "@/lib/mongodb";
 import HeroImages from "@/components/HeroImages";
+import HeroNew from "@/components/HeroNew";
 import { getHeroImagesAsync } from "@/features/products/productSlice";
 import { LoadingOverlay } from "@/components/LoadingOverlay";
 import AllProducts from "@/components/AllProducts";
@@ -46,16 +47,13 @@ export default function Home() {
 
   return (
     <>
+      {mounted && loading ? <LoadingOverlay /> : <HeroNew />}
       {mounted && loading ? (
         <LoadingOverlay />
       ) : (
         <HeroImages heroImages={heroImages} />
+        // <ProductList products={products} />
       )}
-      {/* {mounted && loading ? (
-        <LoadingOverlay />
-      ) : (
-        <ProductList products={products} />
-      )} */}
       {mounted && loading ? (
         <LoadingOverlay />
       ) : (
@@ -66,16 +64,16 @@ export default function Home() {
       ) : (
         <Creativeharmoniousliving otherimages={otherImages} />
       )}
-      {mounted && loading ? (
+      {/* {mounted && loading ? (
         <LoadingOverlay />
       ) : (
         <TrendingNow allProducts={allProducts} />
-      )}
-      {mounted && loading ? (
+      )} */}
+      {/* {mounted && loading ? (
         <LoadingOverlay />
       ) : (
         <ComfortableElegante otherimages={otherImages} />
-      )}
+      )} */}
     </>
   );
 }

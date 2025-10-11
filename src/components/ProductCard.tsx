@@ -1,47 +1,42 @@
 import Image from "next/image";
-import React from "react";
-import { motion } from "framer-motion";
-import type { Product } from "@/lib/mongodb";
 
-type ProductCardProps = {
-  product: Product;
-};
-
-function ProductCard({ product }: ProductCardProps) {
-  return (
-    <motion.div
-      key={product.id}
-      className="break-inside-avoid rounded shadow-sm p-4 bg-white cursor-pointer"
-      whileHover={{ scale: 1.03, boxShadow: "0 8px 20px rgba(0,0,0,0.12)" }}
-      transition={{ type: "spring", stiffness: 300, damping: 20 }}
-    >
-      <div className="relative w-full h-[300px] mb-4">
-        <Image
-          src={product.image}
-          alt={product.name}
-          fill
-          className="rounded-md object-cover"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          priority
-        />
-      </div>
-
-      <h2 className="text-lg font-semibold whitespace-nowrap overflow-hidden text-ellipsis">
-        {product.name}
-      </h2>
-      <p className="text-sm">{product.brand}</p>
-      <p className="text-sm">Size: {product.size}</p>
-      <p className="text-sm">Occasion: {product.occasion}</p>
-      <div className="flex items-center gap-2 mt-2">
-        <span className="font-bold text-green-600">
-          ${product.price.toFixed(2)}
-        </span>
-        <span className="text-sm line-through text-gray-400">
-          ${(product.price / (1 - product.saleDiscount / 100)).toFixed(2)}
-        </span>
-      </div>
-    </motion.div>
-  );
+interface ProductCardProps {
+  id: string;
+  img: string;
+  description: string;
+  category: string;
+  price: number;
+  onClick: (id: string) => void;
 }
+
+const ProductCard = ({
+  id,
+  img,
+  description,
+  category,
+  price,
+  onClick,
+}: ProductCardProps) => {
+  return (
+    <div
+      className=" group cursor-pointer leading-8 p-4 rounded-lg shadow-md"
+      onClick={() => onClick(id)}
+    >
+      <Image
+        className="group-hover:scale-105 transition-transform"
+        src={img}
+        alt={description}
+        width={1000}
+        height={1000}
+      />
+      <h2 className="font-semibold">{description}</h2>
+      <p className="bg-gray-100 rounded-3xl w-fit px-2">{category}</p>
+      <p className="font-bold pt-1">${price}</p>
+      <button className="opacity-0 scale-95 pointer-events-none btn py-1 w-full my-1 transition-all duration-300 ease-in-out group-hover:opacity-100 group-hover:scale-100 group-hover:pointer-events-auto">
+        Add to cart
+      </button>
+    </div>
+  );
+};
 
 export default ProductCard;

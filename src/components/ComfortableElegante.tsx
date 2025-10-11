@@ -24,7 +24,7 @@ const ComfortableElegante = ({ otherimages }: ComfortableEleganteProps) => {
             />
           ))}
         </div>
-        <div className="flex flex-col justify-center bg-[#e9e9e9] px-10 lg:px-20 md:w-1/2">
+        <div className="flex flex-col justify-center bg-[#f9ece2] px-10 lg:px-20 md:w-1/2">
           <h1 className="font-semibold text-3xl">
             Comfortable & Elegante Living
           </h1>
@@ -34,7 +34,7 @@ const ComfortableElegante = ({ otherimages }: ComfortableEleganteProps) => {
           </p>
           <button
             onClick={() => router.push("/categories")}
-            className="bg-black font-bold text-white w-32 py-4 cursor-pointer"
+            className="btn w-32 px-4"
           >
             Shop now
           </button>

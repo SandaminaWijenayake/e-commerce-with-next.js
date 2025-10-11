@@ -13,33 +13,33 @@ const Creativeharmoniousliving = ({
   const router = useRouter();
   return (
     <>
-      <div className="w-10/12 flex overflow-hidden h-[400px] m-auto">
-        <div className="flex flex-col justify-center bg-[#e9e9e9] px-10 lg:px-20 md:w-1/2">
-          <h1 className="font-semibold text-3xl">Creative harmonious living</h1>
-          <p className=" mt-4 mb-5 ">
-            RAOUF Products are all made to standard sizes so that you can mix
-            and match them freely.
+      <section className="py-16 bg-gradient-to-r from-[#f9ece2] to-[#e4e3e1]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            Stay in the Loop
+          </h2>
+          <p className="text-lg text-gray-500 mb-8">
+            Subscribe to our newsletter for exclusive deals, new arrivals, and
+            style tips
           </p>
-          <button
-            onClick={() => router.push("/categories")}
-            className="bg-black cursor-pointer font-bold text-white w-32 py-4"
-          >
-            Shop now
-          </button>
-        </div>
-        <div className="md:w-1/2 hidden md:flex items-center justify-center">
-          {otherimages.slice(0, 1).map((items) => (
-            <Image
-              key={items._id?.toString()}
-              src={items.image}
-              width={1000}
-              height={500}
-              className="w-full h-full object-cover"
-              alt="Creative Harmonious Living"
+
+          <form className="max-w-md mx-auto flex space-x-4">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              className="flex-1 input-field bg-white rounded-2xl px-4"
+              required
             />
-          ))}
+            <button type="submit" className="btn px-8 py-3">
+              Subscribe
+            </button>
+          </form>
+
+          <p className="text-xs text-gray-500 mt-4">
+            No spam, unsubscribe at any time
+          </p>
         </div>
-      </div>
+      </section>
     </>
   );
 };

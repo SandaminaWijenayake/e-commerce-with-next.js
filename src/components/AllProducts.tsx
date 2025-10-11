@@ -1,7 +1,7 @@
 import React from "react";
 import { allProducts } from "@/lib/mongodb";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
+import ProductCard from "./ProductCard";
 
 type AllProductsProps = {
   allProducts: allProducts[];
@@ -15,27 +15,35 @@ const AllProducts = ({ allProducts }: AllProductsProps) => {
   };
   return (
     <>
-      <div className="w-10/12 mx-auto py-16 md:py-32 ">
-        <div className="text-xl md:text-2xl  font-semibold pb-12">
-          Products we are proud of
+      <div className="w-10/12 mx-auto py-16 md:py-16 ">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold  mb-4">
+            Featured Products
+          </h2>
+          <p className="text-lg text-gray-500 max-w-2xl mx-auto">
+            Handpicked items that our customers love most
+          </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {allProducts.slice(0, 8).map((items) => (
-            <div
-              className="transition-transform cursor-pointer duration-200 hover:border-2 hover:border-gray-300 p-4 rounded-lg shadow-md"
-              key={items._id?.toString()}
-              onClick={() => handleClick(items._id?.toString())}
-            >
-              <Image
-                src={items.img}
-                alt={items.description}
-                width={1000}
-                height={1000}
-              />
-              <h2>{items.description}</h2>
-              <p className="font-bold pt-1">${items.price}</p>
-            </div>
+          {allProducts.slice(0, 8).map((item) => (
+            <ProductCard
+              key={item._id?.toString()}
+              id={item._id?.toString()}
+              img={item.img}
+              description={item.description}
+              category={item.category}
+              price={item.price}
+              onClick={handleClick}
+            />
           ))}
+        </div>
+        <div className="text-center mt-12">
+          <button
+            onClick={() => router.push("/categories")}
+            className="btn-gray font-semibold rounded-4xl"
+          >
+            <span>View All Products &gt;</span>
+          </button>
         </div>
       </div>
     </>
