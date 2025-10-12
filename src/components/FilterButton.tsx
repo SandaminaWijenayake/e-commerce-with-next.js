@@ -4,7 +4,7 @@ import FilterTuggle from "./FilterTuggle";
 import type { FilterTuggleProps } from "./FilterTuggle";
 
 const FilterButton = (props: FilterTuggleProps) => {
-  const { filterOptions, handleFilterOption } = props;
+  const { filterOptions, handleFilterOption, category } = props;
   const [open, setOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -39,6 +39,7 @@ const FilterButton = (props: FilterTuggleProps) => {
         className={`lg:hidden ${open ? "block" : "hidden"}`}
       >
         <FilterTuggle
+          category={category}
           filterOptions={filterOptions}
           handleFilterOption={handleFilterOption}
         />

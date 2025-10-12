@@ -9,10 +9,10 @@ import FilterButton from "./FilterButton";
 
 const filterOptions = [
   { label: "All", value: "all" },
-  { label: "Furnitures", value: "furniture" },
+  { label: "Furnitures", value: "Furniture" },
   { label: "Electronics", value: "electronic" },
   { label: "Lamps", value: "lamp" },
-  { label: "Kitchen", value: "kitchen" },
+  { label: "Kitchen", value: "Kitchen" },
   { label: "Chairs", value: "chair" },
   { label: "Skin Care", value: "skin-care" },
 ];
@@ -71,6 +71,7 @@ const FilterFunction = ({ allProducts, category }: AllProductsProps) => {
         </p>
       </div>
       <FilterButton
+        category={category}
         filterOptions={filterOptions}
         handleFilterOption={handleFilterOption}
       />
@@ -82,6 +83,7 @@ const FilterFunction = ({ allProducts, category }: AllProductsProps) => {
               <div className="sticky top-6 space-y-6"></div>
               <h3 className="text-lg font-semibold ">Categories</h3>
               <FilterTuggle
+                category={category}
                 filterOptions={filterOptions}
                 handleFilterOption={handleFilterOption}
               />

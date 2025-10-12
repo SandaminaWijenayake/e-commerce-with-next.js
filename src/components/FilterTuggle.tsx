@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 
 export interface FilterTuggleProps {
+  category?: string | null;
   filterOptions: FilterOption[];
   handleFilterOption: (option: string) => void;
 }
@@ -14,8 +15,9 @@ export interface FilterOption {
 const FilterTuggle = ({
   filterOptions,
   handleFilterOption,
+  category,
 }: FilterTuggleProps) => {
-  const [selected, setSelected] = useState<string>("all");
+  const [selected, setSelected] = useState(category || "all");
   return (
     <div className="space-y-2 mt-4 cursor-pointer">
       {filterOptions.map((option) => (
