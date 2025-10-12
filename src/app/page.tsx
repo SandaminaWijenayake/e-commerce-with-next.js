@@ -52,7 +52,6 @@ export default function Home() {
         <LoadingOverlay />
       ) : (
         <HeroImages heroImages={heroImages} />
-        // <ProductList products={products} />
       )}
       {mounted && loading ? (
         <LoadingOverlay />
@@ -60,16 +59,6 @@ export default function Home() {
         <AllProducts allProducts={allProducts} />
       )}
       {mounted && loading ? <LoadingOverlay /> : <Creativeharmoniousliving />}
-      {/* {mounted && loading ? (
-        <LoadingOverlay />
-      ) : (
-        <TrendingNow allProducts={allProducts} />
-      )} */}
-      {/* {mounted && loading ? (
-        <LoadingOverlay />
-      ) : (
-        <ComfortableElegante otherimages={otherImages} />
-      )} */}
     </>
   );
 }
