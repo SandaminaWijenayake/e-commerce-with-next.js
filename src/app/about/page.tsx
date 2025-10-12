@@ -85,7 +85,7 @@ const About: React.FC = () => {
               About ShopCo
             </h1>
             <p className="text-xl md:text-2xl text-gray-500  max-w-3xl mx-auto leading-relaxed">
-              We're passionate about bringing you quality products that enhance
+              We are passionate about bringing you quality products that enhance
               your lifestyle. Our journey started with a simple mission: make
               great design accessible to everyone.
             </p>
@@ -122,7 +122,7 @@ const About: React.FC = () => {
                 </p>
                 <p className="text-lg text-gray-500 leading-relaxed mb-8">
                   From the moment you browse our collection to the day your
-                  order arrives at your door, we're committed to providing an
+                  order arrives at your door, we are committed to providing an
                   exceptional experience that exceeds your expectations.
                 </p>
 

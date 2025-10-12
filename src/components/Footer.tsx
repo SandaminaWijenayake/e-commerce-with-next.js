@@ -29,7 +29,7 @@ const Footer = () => {
             <div className="space-y-4">
               <h3 className="text-lg font-semibold">ShopCo</h3>
               <p className="text-gray-500 text-sm leading-relaxed">
-                Discover quality products at unbeatable prices. We're committed
+                Discover quality products at unbeatable prices. We are committed
                 to bringing you the best shopping experience with curated
                 collections and exceptional service.
               </p>
