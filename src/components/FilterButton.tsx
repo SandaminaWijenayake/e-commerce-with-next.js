@@ -1,10 +1,9 @@
-import React, { useState, useEffect, use, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import FilterAltOutlinedIcon from "@mui/icons-material/FilterAltOutlined";
 import FilterTuggle from "./FilterTuggle";
 import type { FilterTuggleProps } from "./FilterTuggle";
 
-interface FilterButtonProps extends FilterTuggleProps {}
-const FilterButton = (props: FilterButtonProps) => {
+const FilterButton = (props: FilterTuggleProps) => {
   const { filterOptions, handleFilterOption } = props;
   const [open, setOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);

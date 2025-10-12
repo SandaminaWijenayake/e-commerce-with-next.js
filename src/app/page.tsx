@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { getProductsAsync } from "@/features/products/productSlice";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
-import type { HeroImage, otherimages, Product } from "@/lib/mongodb";
+import type { HeroImage, Product } from "@/lib/mongodb";
 import HeroImages from "@/components/HeroImages";
 import HeroNew from "@/components/HeroNew";
 import { getHeroImagesAsync } from "@/features/products/productSlice";
@@ -25,9 +25,9 @@ export default function Home() {
   const heroImages: HeroImage[] = useAppSelector(
     (state) => state.heroImages.items
   );
-  const otherImages: otherimages[] = useAppSelector(
-    (state) => state.otherImages.items
-  );
+  // const otherImages: otherimages[] = useAppSelector(
+  //   (state) => state.otherImages.items
+  // );
 
   const loading: boolean = useAppSelector((state) => state.products.loading);
   const [mounted, setMounted] = useState(false);

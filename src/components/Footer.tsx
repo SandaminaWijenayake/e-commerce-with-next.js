@@ -10,6 +10,8 @@ import {
   Instagram,
 } from "lucide-react";
 
+import Link from "next/link";
+
 const Footer = () => {
   const [email, setEmail] = useState("");
 
@@ -32,27 +34,27 @@ const Footer = () => {
                 collections and exceptional service.
               </p>
               <div className="flex space-x-4 ">
-                <a
+                <Link
                   href="#"
                   className="hover:text-[#f97415] transition-colors duration-200 text-gray-500 rounded p-1"
                   aria-label="Follow us on Facebook"
                 >
                   <Facebook className="h-5 w-5" />
-                </a>
-                <a
+                </Link>
+                <Link
                   href="#"
                   className="hover:text-[#f97415] transition-colors duration-20 text-gray-500   rounded p-1"
                   aria-label="Follow us on Twitter"
                 >
                   <Twitter className="h-5 w-5" />
-                </a>
-                <a
+                </Link>
+                <Link
                   href="#"
                   className="hover:text-[#f97415] transition-colors duration-200 text-gray-500  rounded p-1"
                   aria-label="Follow us on Instagram"
                 >
                   <Instagram className="h-5 w-5" />
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -67,12 +69,12 @@ const Footer = () => {
                   { href: "/faq", label: "FAQ" },
                 ].map((link) => (
                   <li key={link.href}>
-                    <a
+                    <Link
                       href={link.href}
                       className="text-gray-500 hover:text-accent-warm transition-colors duration-200 text-sm"
                     >
                       {link.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -89,12 +91,12 @@ const Footer = () => {
                   { href: "/terms", label: "Terms of Service" },
                 ].map((link) => (
                   <li key={link.href}>
-                    <a
+                    <Link
                       href={link.href}
                       className="text-gray-500  hover:text-accent-warm transition-colors duration-200 text-sm"
                     >
                       {link.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>

@@ -58,7 +58,7 @@ const FilterFunction = ({ allProducts, category }: AllProductsProps) => {
   useEffect(() => {
     setFilteredProducts(allProducts);
     productClickedFromHomePageHandler(category);
-  }, [allProducts, category, productClickedFromHomePageHandler]);
+  }, [allProducts, category]);
 
   return (
     <>

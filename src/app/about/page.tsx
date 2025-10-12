@@ -1,5 +1,6 @@
 import React from "react";
 import { Award, Users, Target, Heart } from "lucide-react";
+import Link from "next/link";
 
 import Image, { StaticImageData } from "next/image";
 import teamImage from "@/../public/assets/Copilot_20250821_061959.png";
@@ -126,12 +127,12 @@ const About: React.FC = () => {
                 </p>
 
                 <div className="flex flex-col font-medium sm:flex-row gap-4">
-                  <a href="/categories" className="btn">
+                  <Link href="/categories" className="btn">
                     Shop Our Collection
-                  </a>
-                  <a href="/#" className="btn-gray">
+                  </Link>
+                  <Link href="#" className="btn-gray">
                     Get in Touch
-                  </a>
+                  </Link>
                 </div>
               </div>
 
@@ -237,12 +238,12 @@ const About: React.FC = () => {
             </p>
 
             <div className="flex flex-col font-medium sm:flex-row gap-4 justify-center">
-              <a href="/categories" className="btn">
+              <Link href="/categories" className="btn">
                 Browse Products
-              </a>
-              <a href="/about" className="btn-muted">
+              </Link>
+              <Link href="/about" className="btn-muted">
                 About us
-              </a>
+              </Link>
             </div>
           </div>
         </section>
